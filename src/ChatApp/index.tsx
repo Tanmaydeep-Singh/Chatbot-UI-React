@@ -31,7 +31,7 @@ const Chat = () => {
   return (
     <div className="max-w-sm mx-auto mt-32 ">
       <div className="bg-white border border-gray-200 rounded-lg shadow relative">
-        <ChatHeader />
+        <ChatHeader  />
         <ChatContent messages={chatMessages} />
         <ChatInputBox sendANewMessage={sendANewMessage} />
       </div>

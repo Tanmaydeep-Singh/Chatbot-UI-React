@@ -27,6 +27,9 @@ const ChatContent = ({ messages }: ChatContentProps) => {
               message.isChatOwner ? "order-1 mr-2" : "order-2 ml-2"
             }`}
           >
+            <span className="text-xs text-gray-200">
+              {message.sentBy}
+            </span>
             <span className="text-md">{message.text}</span>
           </div>
         </div>

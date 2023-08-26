@@ -1,5 +1,6 @@
 import React from "react";
 import DebouncedInput from "../../components/DebouncedInput";
+import axios from "axios";
 interface Message {
   text: string;
   sentBy: string;
@@ -18,16 +19,34 @@ const ChatInputBox = ({ sendANewMessage }: ChatInputBoxProps) => {
    * Send message handler
    * Should empty text field after sent
    */
-  const doSendMessage = () => {
+  const doSendMessage = async() => {
+    console.log(  "called")
     if (newMessage && newMessage.length > 0) {
       const newMessagePayload: Message = {
         sentAt: new Date(),
-        sentBy: "devlazar",
+        sentBy: "You",
         isChatOwner: true,
         text: newMessage
       };
       sendANewMessage(newMessagePayload);
       setNewMessage("");
+
+
+  const body = {
+      "message" : newMessage
+    }
+  
+    const response = await axios.post("http://192.168.1.127:8000//predict", body)
+       const newResponsePayload: Message = {
+      sentAt: new Date(),
+      sentBy: "ZuraBot",
+      isChatOwner: false,
+      text: response.data.answer
+    };
+    sendANewMessage(newResponsePayload);
+
+
+   
     }
   };
 
