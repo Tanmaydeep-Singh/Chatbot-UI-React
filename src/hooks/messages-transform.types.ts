@@ -1,5 +1,9 @@
-import { Message } from "../data";
-
+interface Message {
+  text: string;
+  sentBy: string;
+  sentAt: Date;
+  isChatOwner?: boolean;
+}
 export class MessagesResponse {
   data: Message[];
   constructor(messages: Message[]) {

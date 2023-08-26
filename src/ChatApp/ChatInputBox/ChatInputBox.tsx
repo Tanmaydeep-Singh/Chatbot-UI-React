@@ -1,6 +1,12 @@
 import React from "react";
-import { Message } from "../../data";
 import DebouncedInput from "../../components/DebouncedInput";
+interface Message {
+  text: string;
+  sentBy: string;
+  sentAt: Date;
+  isChatOwner?: boolean;
+}
+
 interface ChatInputBoxProps {
   sendANewMessage: (message: Message) => void;
 }

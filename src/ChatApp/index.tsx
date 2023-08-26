@@ -3,11 +3,17 @@ import ChatHeader from "./ChatHeader/ChatHeader";
 import ChatContent from "./ChatContent/ChatContent";
 import ChatInputBox from "./ChatInputBox/ChatInputBox";
 import { useGetMessages } from "../hooks/useGetMessages";
-import { Message } from "../data";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 
 const Chat = () => {
   /** Simulate a hook fetching the data */
+  interface Message {
+    text: string;
+    sentBy: string;
+    sentAt: Date;
+    isChatOwner?: boolean;
+  }
+  
   const {
     messages: { data }
   } = useGetMessages();

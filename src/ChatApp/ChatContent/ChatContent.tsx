@@ -1,8 +1,13 @@
 import React from "react";
-import { Message } from "../../data";
 import {} from "../../hooks/messages-transform.types";
 import Avatar from "../Avatar/Avatar";
 
+interface Message {
+  text: string;
+  sentBy: string;
+  sentAt: Date;
+  isChatOwner?: boolean;
+}
 interface ChatContentProps {
   messages: Message[];
 }

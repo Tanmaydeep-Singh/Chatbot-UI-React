@@ -32,4 +32,4 @@ const messages: Message[] = [
   }
 ];
 
-export { messages, Message };
+export { messages };
