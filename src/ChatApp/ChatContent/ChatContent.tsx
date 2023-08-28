@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import {} from "../../hooks/messages-transform.types";
 
 interface Message {
@@ -11,8 +11,17 @@ interface ChatContentProps {
 }
 
 const ChatContent = ({ messages }: ChatContentProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   return (
-    <div className="max-h-64 h-64 px-6 py-1 overflow-auto">
+    <div       ref={containerRef}
+    className="max-h-64 h-64 px-6 py-1 overflow-y-auto scroll-smooth	">
       {messages.map((message: Message, index: number) => (
         <div
           key={index}

@@ -15,10 +15,6 @@ interface ChatInputBoxProps {
 const ChatInputBox = ({ sendANewMessage }: ChatInputBoxProps) => {
   const [newMessage, setNewMessage] = React.useState("");
 
-  /**
-   * Send message handler
-   * Should empty text field after sent
-   */
   const doSendMessage = async() => {
     console.log(  "called")
     if (newMessage && newMessage.length > 0) {
@@ -45,8 +41,6 @@ const ChatInputBox = ({ sendANewMessage }: ChatInputBoxProps) => {
     };
     sendANewMessage(newResponsePayload);
 
-
-   
     }
   };
 
